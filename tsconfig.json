@@ -1,0 +1,10 @@
+{
+  // https://v3.nuxtjs.org/concepts/typescript
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "types": [
+      // https://pinia.vuejs.org/
+      "@pinia/nuxt"
+    ]
+  }
+}
