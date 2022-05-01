@@ -4,7 +4,6 @@ definePageMeta({
   layout: 'custom',
 });
 const { $api } = useNuxtApp();
-
 const { x, y } = useMouse();
 onMounted(async () => {
   await $api.user.postUserLogin('1234');

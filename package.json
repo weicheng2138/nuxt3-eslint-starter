@@ -1,5 +1,8 @@
 {
-  "private": true,
+  "name": "nuxt3-eslint-starter",
+  "version": "1.0.0",
+  "author": "weicheng2138",
+  "license": "MIT",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
