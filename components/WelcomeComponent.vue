@@ -2,9 +2,9 @@
 
 <template>
   <div
-    class="flex min-h-screen flex-col items-center justify-center bg-slate-800 text-white"
+    class="flex min-h-screen flex-col items-center justify-center bg-slate-800 px-4 text-white"
   >
-    <header>
+    <header class="mb-4">
       <a href="https://v3.nuxtjs.org/">
         <svg
           viewBox="0 0 221 65"
@@ -41,7 +41,7 @@
       </a>
     </header>
     <section
-      class="relative rounded p-4 before:absolute before:inset-[14px] before:block before:rounded-lg before:bg-slate-600 before:bg-flow before:bg-left-bottom before:transition-flow before:duration-300 before:hover:bg-nuxt-gradient before:hover:bg-right"
+      class="relative w-full max-w-xl rounded p-4 before:absolute before:inset-[14px] before:block before:rounded-lg before:bg-slate-600 before:bg-flow before:bg-left-bottom before:transition-flow before:duration-300 before:hover:bg-nuxt-gradient before:hover:bg-right"
     >
       <div class="relative rounded-md bg-slate-800 p-4">
         <h1 class="text-2xl">Get Started</h1>
@@ -55,10 +55,120 @@
         </p>
       </div>
     </section>
-
-    <div>
-      <section></section>
-      <section></section>
-    </div>
+    <a
+      href="https://github.com/nuxt/framework"
+      target="_blank"
+      rel="noopener"
+      class="relative max-w-xl rounded p-4 before:absolute before:inset-[14px] before:block before:rounded-lg before:bg-slate-600 before:bg-flow before:bg-left-bottom before:transition-flow before:duration-300 before:hover:bg-nuxt-gradient before:hover:bg-right"
+    >
+      <div class="relative rounded-md bg-slate-800 p-4">
+        <svg
+          width="40"
+          height="40"
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="mb-4"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M20 3.33333C10.795 3.33333 3.33337 10.8067 3.33337 20.0283C3.33337 27.4033 8.10837 33.6617 14.7317 35.8683C15.565 36.0217 15.8684 35.5067 15.8684 35.0633C15.8684 34.6683 15.855 33.6167 15.8467 32.225C11.21 33.2333 10.2317 29.9867 10.2317 29.9867C9.47504 28.0567 8.38171 27.5433 8.38171 27.5433C6.86837 26.51 8.49671 26.53 8.49671 26.53C10.1684 26.6467 11.0484 28.25 11.0484 28.25C12.535 30.8 14.95 30.0633 15.8984 29.6367C16.0517 28.5583 16.4817 27.8233 16.9584 27.4067C13.2584 26.985 9.36671 25.5517 9.36671 19.155C9.36671 17.3333 10.0167 15.8417 11.0817 14.675C10.91 14.2533 10.3384 12.555 11.245 10.2583C11.245 10.2583 12.645 9.80833 15.8284 11.9683C17.188 11.5975 18.5908 11.4087 20 11.4067C21.4167 11.4133 22.8417 11.5983 24.1734 11.9683C27.355 9.80833 28.7517 10.2567 28.7517 10.2567C29.6617 12.555 29.0884 14.2533 28.9184 14.675C29.985 15.8417 30.6317 17.3333 30.6317 19.155C30.6317 25.5683 26.7334 26.98 23.0217 27.3933C23.62 27.9083 24.1517 28.9267 24.1517 30.485C24.1517 32.715 24.1317 34.5167 24.1317 35.0633C24.1317 35.51 24.4317 36.03 25.2784 35.8667C28.5972 34.7535 31.4823 32.6255 33.5258 29.7834C35.5694 26.9413 36.6681 23.5289 36.6667 20.0283C36.6667 10.8067 29.2034 3.33333 20 3.33333Z"
+            fill="currentColor"
+            data-v-84dc3362=""
+          ></path>
+        </svg>
+        <h1 class="text-2xl">GitHub</h1>
+        <p>
+          Nuxt is open source and the code is available on GitHub, feel free to
+          star it, participate in discussions or dive into the source.
+        </p>
+      </div>
+    </a>
+    <a
+      href="https://v3.nuxtjs.org/"
+      target="_blank"
+      rel="noopener"
+      class="relative max-w-xl rounded p-4 before:absolute before:inset-[14px] before:block before:rounded-lg before:bg-slate-600 before:bg-flow before:bg-left-bottom before:transition-flow before:duration-300 before:hover:bg-nuxt-gradient before:hover:bg-right"
+    >
+      <div class="relative rounded-md bg-slate-800 p-4">
+        <svg
+          width="40"
+          height="40"
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="mb-4"
+        >
+          <path
+            d="M20 10.4217C21.9467 9.12833 24.59 8.33333 27.5 8.33333C30.4117 8.33333 33.0533 9.12833 35 10.4217V32.0883C33.0533 30.795 30.4117 30 27.5 30C24.59 30 21.9467 30.795 20 32.0883M20 10.4217V32.0883V10.4217ZM20 10.4217C18.0533 9.12833 15.41 8.33333 12.5 8.33333C9.59 8.33333 6.94667 9.12833 5 10.4217V32.0883C6.94667 30.795 9.59 30 12.5 30C15.41 30 18.0533 30.795 20 32.0883V10.4217Z"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            data-v-84dc3362=""
+          ></path>
+          <rect
+            x="23.3334"
+            y="13.3333"
+            width="8.33334"
+            height="1.66667"
+            rx="0.833333"
+            fill="currentColor"
+            data-v-84dc3362=""
+          ></rect>
+          <rect
+            x="8.33337"
+            y="13.3333"
+            width="8.33333"
+            height="1.66667"
+            rx="0.833333"
+            fill="currentColor"
+            data-v-84dc3362=""
+          ></rect>
+          <rect
+            x="8.33337"
+            y="18.3333"
+            width="8.33333"
+            height="1.66667"
+            rx="0.833333"
+            fill="currentColor"
+            data-v-84dc3362=""
+          ></rect>
+          <rect
+            x="8.33337"
+            y="23.3333"
+            width="8.33333"
+            height="1.66667"
+            rx="0.833334"
+            fill="currentColor"
+            data-v-84dc3362=""
+          ></rect>
+          <rect
+            x="23.3334"
+            y="18.3333"
+            width="8.33334"
+            height="1.66667"
+            rx="0.833333"
+            fill="currentColor"
+            data-v-84dc3362=""
+          ></rect>
+          <rect
+            x="23.3334"
+            y="23.3333"
+            width="8.33334"
+            height="1.66667"
+            rx="0.833334"
+            fill="currentColor"
+            data-v-84dc3362=""
+          ></rect>
+        </svg>
+        <h1 class="text-2xl">Documentation</h1>
+        <p>
+          We highly recommend you take a look at the Nuxt documentation, whether
+          you are new or have previous experience with the framework.
+        </p>
+      </div>
+    </a>
   </div>
 </template>
