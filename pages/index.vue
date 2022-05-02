@@ -2,6 +2,6 @@
   <div>
     <NuxtLink to="/about">ABOUT</NuxtLink>
 
-    <LazyNuxtWelcome />
+    <NuxtWelcome />
   </div>
 </template>
