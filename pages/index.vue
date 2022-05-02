@@ -1,7 +1,11 @@
+<script setup lang="ts">
+definePageMeta({
+  layout: 'empty',
+});
+</script>
+
 <template>
   <div>
-    <NuxtLink to="/about">ABOUT</NuxtLink>
-
-    <NuxtWelcome />
+    <WelcomeComponent />
   </div>
 </template>
