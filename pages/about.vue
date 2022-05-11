@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { useCounterStore } from '@/stores/counter';
+import { useCounterStore } from '@/stores/counter'
 definePageMeta({
   layout: 'custom',
-});
-const { $api } = useNuxtApp();
-const { x, y } = useMouse();
+})
+const { $api } = useNuxtApp()
+const { x, y } = useMouse()
 onMounted(async () => {
-  await $api.user.postUserLogin('1234');
-});
+  await $api.user.postUserLogin('1234')
+})
 
-const counterStore = useCounterStore();
+const counterStore = useCounterStore()
 </script>
 
 <template>

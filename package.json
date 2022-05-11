@@ -9,7 +9,11 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "lint": "eslint . --ext .ts,.vue",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format-check": "npx prettier --check ./",
+    "format-write": "npx prettier --write ./",
+    "test": "vitest",
+    "test:e2e": "testcafe chrome tests/"
   },
   "lint-staged": {
     "*.{js,vue,ts}": [
@@ -17,6 +21,7 @@
     ]
   },
   "devDependencies": {
+    "@nuxt/test-utils": "^3.0.0-rc.3",
     "@nuxtjs/eslint-config-typescript": "^9.0.0",
     "@pinia/nuxt": "^0.1.8",
     "@vueuse/nuxt": "^8.3.1",
@@ -34,7 +39,9 @@
     "prettier": "^2.6.2",
     "prettier-plugin-tailwindcss": "^0.1.10",
     "tailwindcss": "^3.0.24",
-    "typescript": "^4.6.4"
+    "testcafe": "^1.18.6",
+    "typescript": "^4.6.4",
+    "vitest": "^0.12.4"
   },
   "config": {
     "commitizen": {

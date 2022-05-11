@@ -106,7 +106,7 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-};
+}
 ```
 
 `nuxt.config.ts` configuration
@@ -124,7 +124,7 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/css/tailwind.css'],
-});
+})
 ```
 
 ### [Pinia](https://pinia.vuejs.org/) Setup 🍍
@@ -141,7 +141,7 @@ export default defineNuxtConfig({
     // https://composition-api.nuxtjs.org/getting-started/setup#quick-start
     '@pinia/nuxt',
   ],
-});
+})
 ```
 
 `tsconfig.json` for typescript support
@@ -207,5 +207,5 @@ export default defineNuxtConfig({
   vueuse: {
     ssrHandlers: true,
   },
-});
+})
 ```
