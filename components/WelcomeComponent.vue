@@ -46,6 +46,9 @@
       <div class="relative rounded-md bg-slate-800 p-4">
         <h1 class="text-2xl">Get Started</h1>
         <p>
+          Eslint, Tailwindcss, Pinia, Testcafe and Vitest are ready to launch 🚀
+        </p>
+        <p>
           Remove this welcome page by removing
           <code
             class="rounded bg-gray-100 p-1 font-mono font-bold dark:bg-white/10"
