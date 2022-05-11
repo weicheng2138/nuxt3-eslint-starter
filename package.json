@@ -9,7 +9,9 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "lint": "eslint . --ext .ts,.vue",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format-check": "npx prettier --check ./",
+    "format-write": "npx prettier --write ./"
   },
   "lint-staged": {
     "*.{js,vue,ts}": [
