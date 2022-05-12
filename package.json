@@ -13,7 +13,7 @@
     "format-check": "npx prettier --check ./",
     "format-write": "npx prettier --write ./",
     "test": "vitest",
-    "test:e2e": "testcafe chrome tests/"
+    "test:e2e": "testcafe chrome tests/e2e/"
   },
   "lint-staged": {
     "*.{js,vue,ts}": [
