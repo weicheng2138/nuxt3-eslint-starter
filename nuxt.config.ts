@@ -4,15 +4,13 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
   app: {
     head: {
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/public/favicon.ico' },
-      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },
   },
   typescript: {
     strict: true,
   },
-  buildModules: ['@pinia/nuxt', '@vueuse/nuxt'],
+  modules: ['@vueuse/nuxt', '@pinia/nuxt'],
   vueuse: {
     ssrHandlers: true,
   },
