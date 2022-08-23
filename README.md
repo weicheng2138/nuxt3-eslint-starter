@@ -137,10 +137,7 @@ yarn add -D pinia @pinia/nuxt
 
 ```ts
 export default defineNuxtConfig({
-  buildModules: [
-    // https://composition-api.nuxtjs.org/getting-started/setup#quick-start
-    '@pinia/nuxt',
-  ],
+  modules: ['@pinia/nuxt'],
 })
 ```
 
@@ -203,7 +200,7 @@ yarn add -D @vueuse/nuxt
 
 ```ts
 export default defineNuxtConfig({
-  buildModules: ['@vueuse/nuxt'],
+  modules: ['@vueuse/nuxt', '@pinia/nuxt'],
   vueuse: {
     ssrHandlers: true,
   },
