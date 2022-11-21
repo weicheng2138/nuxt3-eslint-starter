@@ -1,6 +1,17 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 with Eslint and Tailwindcss
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+
+## Features
+
+-   [x] 🌊 [Tailwindcss](https://tailwindcss.nuxt.dev/)
+-   [x] 🍍 [State & Store Management (Pinia)](https://pinia.vuejs.org/)
+-   [x] 📦 [Vue Composition Collection (Vueuse)](https://vueuse.org/)
+-   [x] 🥸 [Mocking Service Worker (MSW)](https://mswjs.io/)
+-   [x] 📱 Mobile Detect Plugin
+-   [x] ✨ Eslint & Prettier
+-   [x] 🐕 Husky & Commitlint
+-   [x] 🔗 [Axios](https://axios-http.com/) setup complete in NuxtApp
 
 ## Setup
 
@@ -10,11 +21,8 @@ Make sure to install the dependencies:
 # yarn
 yarn install
 
-# npm
-npm install
-
 # pnpm
-pnpm install --shamefully-hoist
+pnpm install
 ```
 
 ## Development Server
@@ -22,7 +30,7 @@ pnpm install --shamefully-hoist
 Start the development server on http://localhost:3000
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 ## Production
@@ -30,13 +38,176 @@ npm run dev
 Build the application for production:
 
 ```bash
-npm run build
+yarn build
 ```
 
 Locally preview production build:
 
 ```bash
-npm run preview
+yarn preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/introduction) for more information.
+
+## Setup Tutorials for other libraries
+
+### [Eslint](https://eslint.org/) Setup
+
+```bash
+yarn add -D @nuxtjs/eslint-config-typescript eslint@latest eslint-plugin-nuxt@latest eslint-config-prettier eslint-plugin-prettier
+```
+
+Nuxt 3 built-in typescript is still cannot be detected by eslint, So...
+
+```bash
+yarn add -D typescript
+```
+
+`eslintrc.json` configuration
+
+```json
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "@nuxtjs/eslint-config-typescript",
+        "plugin:nuxt/recommended",
+        "plugin:prettier/recommended"
+    ]
+}
+```
+
+### [Tailwindcss](https://tailwindcss.nuxt.dev/) Setup
+
+Recommended extension Tailwind CSS IntelliSense and PostCSS Language Support. You can see the recommended list in `extension.json`
+
+```bash
+yarn add -D @nuxtjs/tailwindcss
+```
+
+#### Optional: Create `tailwind.css` file in assets/css folder
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+#### `nuxt.config.ts` configuration
+
+```ts
+export default defineNuxtConfig({
+    tailwindcss: {
+        cssPath: "~/assets/css/tailwind.css",
+        configPath: "tailwind.config",
+        // exposeConfig: false,
+        // config: {},
+        // injectPosition: 0,
+        // viewer: true,
+    },
+    modules: ["@nuxtjs/tailwindcss"],
+});
+```
+
+#### Create `tailwind.config.ts` and its configuration
+
+```ts
+import type { Config } from "tailwindcss";
+// import defaultTheme from 'tailwindcss/defaultTheme'
+
+export default <Partial<Config>>{
+    theme: {
+        extend: {
+            colors: {
+                primary: "#00FF00",
+                // primary: defaultTheme.colors.green
+            },
+        },
+    },
+};
+```
+
+> Official setting of `defaultTheme.colors.green` for green is not working
+
+### [Pinia](https://pinia.vuejs.org/) Setup 🍍
+
+```bash
+yarn add -D pinia @pinia/nuxt
+```
+
+`nuxt.config.ts` configuration
+
+```ts
+export default defineNuxtConfig({
+    modules: ["@pinia/nuxt"],
+});
+```
+
+`tsconfig.json` for typescript support
+
+```json
+{
+    "compilerOptions": {
+        "types": [
+            // https://pinia.vuejs.org/
+            "@pinia/nuxt"
+        ]
+    }
+}
+```
+
+### [MSW](https://mswjs.io/) Setup
+
+Simply follow the instruction and put the starting point into `plugins`
+
+```bash
+yarn add -D msw
+```
+
+### [Axios](https://axios-http.com/) Setup
+
+```bash
+yarn add -D axios
+```
+
+`api` folder structure is below
+
+```
+.
+└── api
+    ├── index.ts
+    ├── user.ts
+    ├── search.ts
+    └── layout.modify.ts
+```
+
+-   `index.ts` is the root file to access all apis
+-   Only `mocks/handlers.ts` can directly access individual api file to get the urls
+-   Please call `layout.modify.ts` by using `useAsync`. `layout.modify.ts` is the modification of current site layout from backend.
+-   And put api into useNuxtApp to be the context from plugins
+
+### [Device](https://github.com/nuxt-community/device-module/blob/master/lib/plugin.js) Plugin Setup
+
+This Plugin is alive because [@nuxt/device](https://github.com/nuxt-community/device-module) is not working by simple installation. Therefore I refer to its plugin.js to rewrite a simple context in `useNuxtApp` with `$isMobile`. Feel free to use it.
+
+### [VueUse](https://vueuse.org/) Setup
+
+Its composables are also auto-import to your project✨✨✨
+
+```bash
+yarn add -D @vueuse/nuxt
+```
+
+`nuxt.config.ts` configuration
+
+```ts
+export default defineNuxtConfig({
+    modules: ["@vueuse/nuxt", "@pinia/nuxt"],
+    vueuse: {
+        ssrHandlers: true,
+    },
+});
+```
