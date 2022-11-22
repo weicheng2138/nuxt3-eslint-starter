@@ -9,9 +9,9 @@ Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 -   [x] 📦 [Vue Composition Collection (Vueuse)](https://vueuse.org/)
 -   [x] 🥸 [Mocking Service Worker (MSW)](https://mswjs.io/)
 -   [x] 📱 Mobile Detect Plugin
--   [x] ✨ Eslint & Prettier
--   [x] 🐕 Husky & Commitlint
--   [x] 🔗 [Axios](https://axios-http.com/) setup complete in NuxtApp
+-   [x] ✨ Eslint & lint-staged
+-   [x] 🐕 Husky & cz
+-   [x] 🔗 [Axios v1](https://axios-http.com/) setup complete in NuxtApp
 
 ## Setup
 
@@ -130,31 +130,30 @@ export default <Partial<Config>>{
 
 > Official setting of `defaultTheme.colors.green` for green is not working
 
-### [Pinia](https://pinia.vuejs.org/) Setup 🍍
+### [Pinia](https://pinia.vuejs.org/ssr/nuxt.html) Setup 🍍
 
 ```bash
-yarn add -D pinia @pinia/nuxt
+yarn add @pinia/nuxt
 ```
 
 `nuxt.config.ts` configuration
 
 ```ts
+// nuxt.config.ts
 export default defineNuxtConfig({
-    modules: ["@pinia/nuxt"],
+    // make user stores directory to be able to auto-import without import anything
+    imports: {
+        dirs: ['stores']
+    },
+    modules: [
+        ['@pinia/nuxt',
+            {
+                autoImports: ['defineStore', 'acceptHMRUpdate']
+            }
+        ]
+    ]
 });
 ```
-
-`tsconfig.json` for typescript support
-
-```json
-{
-    "compilerOptions": {
-        "types": [
-            // https://pinia.vuejs.org/
-            "@pinia/nuxt"
-        ]
-    }
-}
 ```
 
 ### [MSW](https://mswjs.io/) Setup

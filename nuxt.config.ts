@@ -2,13 +2,21 @@
 export default defineNuxtConfig({
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
-    configPath: 'tailwind.config',
+    configPath: 'tailwind.config'
     // exposeConfig: false,
     // config: {},
     // injectPosition: 0,
     // viewer: true,
   },
+  imports: {
+    dirs: ['stores']
+  },
   modules: [
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    ['@pinia/nuxt',
+      {
+        autoImports: ['defineStore', 'acceptHMRUpdate']
+      }
+    ]
   ]
 })
