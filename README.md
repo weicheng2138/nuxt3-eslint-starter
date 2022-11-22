@@ -50,7 +50,9 @@ yarn preview
 Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/introduction) for more information.
 
 ## Setup Tutorials for other libraries
-When you are testing and adding these modules in your project, remember to run `yarn dev` during your testing process. Some of auto-import feature need to be generate automatically into  `.nuxt`.
+When you are testing and adding these modules in your project, remember to run `yarn dev` during your testing process. Some of auto-import feature need to be generated automatically into  `.nuxt`.
+
+Normally, nuxt will generate `app.vue` to be the entry point of your app. However, if you create pages directory, `app.vue` will be useless. Therefore, our entry page is `pages/index.vue`.
 
 ### [Eslint](https://github.com/nuxt/eslint-config) Setup with Typescript
 ```bash
@@ -162,6 +164,18 @@ Simply follow the instruction and put the starting point into `plugins`
 
 ```bash
 yarn add -D msw
+```
+
+```ts
+import { worker } from '@/mocks/browser'
+
+export default defineNuxtPlugin(() => {
+  if (process.dev) {
+    worker.start({
+      onUnhandledRequest: 'bypass'
+    })
+  }
+})
 ```
 
 ### [Axios](https://axios-http.com/) Setup

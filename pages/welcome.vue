@@ -14,11 +14,14 @@ const handleClick = () => {
   console.log('YOYO')
 }
 
+const { data: mountains } = await useFetch('https://api.nuxtjs.dev/mount', { server: false })
+
 </script>
 
 <template>
   <div>
     <h1>Welcome page</h1>
+    {{ mountains }}
     <div>
       <p>{{ x }} - {{ y }}</p>
       <button
