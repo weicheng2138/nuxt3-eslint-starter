@@ -50,6 +50,7 @@ yarn preview
 Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/introduction) for more information.
 
 ## Setup Tutorials for other libraries
+When you are testing and adding these modules in your project, remember to run `yarn dev` during your testing process. Some of auto-import feature need to be generate automatically into  `.nuxt`.
 
 ### [Eslint](https://github.com/nuxt/eslint-config) Setup with Typescript
 ```bash
@@ -154,7 +155,6 @@ export default defineNuxtConfig({
     ]
 });
 ```
-```
 
 ### [MSW](https://mswjs.io/) Setup
 
@@ -186,9 +186,75 @@ yarn add -D axios
 -   Please call `layout.modify.ts` by using `useAsync`. `layout.modify.ts` is the modification of current site layout from backend.
 -   And put api into useNuxtApp to be the context from plugins
 
-### [Device](https://github.com/nuxt-community/device-module/blob/master/lib/plugin.js) Plugin Setup
+### [Device](https://www.npmjs.com/package/@nuxtjs/device/v/3.0.0?activeTab=readme) Setup
 
-This Plugin is alive because [@nuxt/device](https://github.com/nuxt-community/device-module) is not working by simple installation. Therefore I refer to its plugin.js to rewrite a simple context in `useNuxtApp` with `$isMobile`. Feel free to use it.
+Previous version is using custom plugin to find out user-agent. However, `@nuxtjs/device` had already finished the version 3 of the module. Therefore, we use it with pleasure.
+
+```bash
+yarn add -D @nuxtjs/device
+```
+```ts
+export default defineNuxtConfig({
+    modules: ['@nuxtjs/device'],
+});
+```
+
+#### Composable
+```html
+<script setup>
+const { isMobile } = useDevice();
+</script>
+```
+#### Switch a view (Cannot be recognized by ts(2339))
+> Property '$device' does not exist
+
+It works fine with the function of it.
+```html
+<div>
+    <div v-if="$device.isDesktop">
+      Desktop
+    </div>
+    <div v-else>
+      Mobile
+    </div>
+</div>
+```
+
+Official example
+```html
+<script lang="ts" setup>
+const device = useDevice()
+</script>
+
+<template>
+  <div>
+    <div v-if="device.isMobile">
+      Mobile
+    </div>
+    <div v-else>
+      Not Mobile
+    </div>
+  </div>
+</template>
+```
+#### Change a layout dynamically (`index.vue`)
+```html
+<script lang="ts" setup>
+const device = useDevice()
+definePageMeta({
+  layout: false
+})
+</script>
+
+<template>
+  <div>
+    <NuxtLayout :name="device.isMobile ? 'mobile':'default'">
+      <h1>Home Page</h1>
+      The rest of the page
+    </NuxtLayout>
+  </div>
+</template>
+```
 
 ### [VueUse](https://vueuse.org/) Setup
 
