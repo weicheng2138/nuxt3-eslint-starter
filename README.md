@@ -51,32 +51,30 @@ Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/in
 
 ## Setup Tutorials for other libraries
 
-### [Eslint](https://eslint.org/) Setup
-
+### [Eslint](https://github.com/nuxt/eslint-config) Setup with Typescript
 ```bash
-yarn add -D @nuxtjs/eslint-config-typescript eslint@latest eslint-plugin-nuxt@latest eslint-config-prettier eslint-plugin-prettier
+yarn add -D @nuxtjs/eslint-config-typescript eslint
 ```
 
-Nuxt 3 built-in typescript is still cannot be detected by eslint, So...
-
-```bash
-yarn add -D typescript
-```
-
-`eslintrc.json` configuration
+`.eslintrc` configuration
 
 ```json
 {
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "node": true
+  "extends": [
+    "@nuxtjs/eslint-config-typescript"
+  ]
+}
+```
+
+Optional: We use eslint to format the code officially. There are settings that you may want to disable.
+1. On macOS - Code > Preferences > Settings
+2. Search `Prettier:Require Config` uncheck it in your workspace
+```json
+{
+    "prettier.requireConfig": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
     },
-    "extends": [
-        "@nuxtjs/eslint-config-typescript",
-        "plugin:nuxt/recommended",
-        "plugin:prettier/recommended"
-    ]
 }
 ```
 
