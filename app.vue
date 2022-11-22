@@ -7,6 +7,7 @@
 //   return para
 // }
 const counterStore = useCounterStore()
+const { x, y } = useMouse()
 
 // const handleClick = () => {
 //   console.log(counterStore.count)
@@ -16,7 +17,7 @@ const counterStore = useCounterStore()
 
 <template>
   <div>
-    <p>dddeeee</p>
+    <p>{{ x }} - {{ y }}</p>
     <button
       class="w-full bg-blue-100 text-primary btn"
       @click="counterStore.increment2x"

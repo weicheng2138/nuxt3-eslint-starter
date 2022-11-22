@@ -195,16 +195,13 @@ This Plugin is alive because [@nuxt/device](https://github.com/nuxt-community/de
 Its composables are also auto-import to your project✨✨✨
 
 ```bash
-yarn add -D @vueuse/nuxt
+yarn add -D @vueuse/nuxt @vueuse/core
 ```
 
 `nuxt.config.ts` configuration
 
 ```ts
 export default defineNuxtConfig({
-    modules: ["@vueuse/nuxt", "@pinia/nuxt"],
-    vueuse: {
-        ssrHandlers: true,
-    },
+    modules: ['@vueuse/nuxt'],
 });
 ```
