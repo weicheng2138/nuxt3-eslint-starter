@@ -1,15 +1,15 @@
-<script setup lang="ts">
+<script lang="ts" setup>
+const device = useDevice()
 definePageMeta({
-  layout: 'empty',
+  layout: false
 })
 
-useHead({
-  title: 'Nuxt3 Eslint',
-})
 </script>
 
 <template>
   <div>
-    <WelcomeComponent />
+    <NuxtLayout :name="device.isMobile ? 'mobile':'default'">
+      <WelcomeComponent />
+    </NuxtLayout>
   </div>
 </template>

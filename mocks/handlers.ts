@@ -1,9 +1,10 @@
 // src/mocks/handlers.js
 import { rest } from 'msw'
-import { postUserLoginUrl } from '~~/apis/user'
+import mountain from './mountain.mock'
 
 export const handlers = [
-  rest.post(postUserLoginUrl, (_req, res, ctx) => {
+  ...mountain,
+  rest.post('/login', (_, res, ctx) => {
     // Persist user's authentication in the session
     sessionStorage.setItem('is-authenticated', 'true')
 
@@ -13,7 +14,7 @@ export const handlers = [
     )
   }),
 
-  rest.get('/user', (_req, res, ctx) => {
+  rest.get('/user', (_, res, ctx) => {
     // Check if the user is authenticated in this session
     const isAuthenticated = sessionStorage.getItem('is-authenticated')
 
@@ -22,7 +23,7 @@ export const handlers = [
       return res(
         ctx.status(403),
         ctx.json({
-          errorMessage: 'Not authorized',
+          errorMessage: 'Not authorized'
         })
       )
     }
@@ -31,8 +32,24 @@ export const handlers = [
     return res(
       ctx.status(200),
       ctx.json({
-        username: 'admin',
+        username: 'admin'
       })
     )
   }),
+
+  rest.get('https://api.nuxtjs.dev/mount', (_, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.delay(500),
+
+      ctx.json([
+        {
+          name: 'hugeDogOne'
+        },
+        {
+          name: 'hugeDogTwo'
+        }
+      ])
+    )
+  })
 ]

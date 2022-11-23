@@ -1,28 +1,25 @@
-import { defineNuxtConfig } from 'nuxt'
-
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  app: {
-    head: {
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    },
+  // ssr: false,
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+    configPath: 'tailwind.config'
+    // exposeConfig: false,
+    // config: {},
+    // injectPosition: 0,
+    // viewer: true,
   },
-  typescript: {
-    strict: true,
+  imports: {
+    dirs: ['stores']
   },
-  modules: ['@vueuse/nuxt', '@pinia/nuxt'],
-  vueuse: {
-    ssrHandlers: true,
-  },
-  build: {
-    postcss: {
-      postcssOptions: {
-        plugins: {
-          tailwindcss: {},
-          autoprefixer: {},
-        },
-      },
-    },
-  },
-  css: ['~/assets/css/tailwind.css'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    ['@pinia/nuxt',
+      {
+        autoImports: ['defineStore', 'acceptHMRUpdate']
+      }
+    ],
+    '@vueuse/nuxt',
+    '@nuxtjs/device'
+  ]
 })
