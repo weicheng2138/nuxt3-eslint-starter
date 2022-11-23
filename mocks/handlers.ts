@@ -39,6 +39,7 @@ export const handlers = [
     return res(
       ctx.status(200),
       ctx.delay(500),
+
       ctx.json([
         {
           name: 'hugeDogOne'

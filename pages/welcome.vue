@@ -8,13 +8,16 @@ const counterStore = useCounterStore()
 const { x, y } = useMouse()
 const device = useDevice()
 
-const handleClick = () => {
+const { $api } = useNuxtApp()
+const handleClick = async () => {
   console.log(useDevice().isWindows)
-
-  console.log('YOYO')
+  const data = await $api.mountain.getMountains()
+  console.log(data)
 }
 
-const { data: mountains } = await useFetch('https://api.nuxtjs.dev/mount', { server: false })
+const { data: mountains } = await useFetch('https://api.nuxtjs.dev/mount', {
+  server: false
+})
 
 </script>
 

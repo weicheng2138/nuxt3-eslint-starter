@@ -32,7 +32,8 @@
     "nuxt": "3.0.0"
   },
   "dependencies": {
-    "@pinia/nuxt": "^0.4.5"
+    "@pinia/nuxt": "^0.4.5",
+    "axios": "^1.1.3"
   },
   "msw": {
     "workerDirectory": "public"
