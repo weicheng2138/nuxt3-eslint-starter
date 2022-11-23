@@ -1,7 +1,9 @@
 // src/mocks/handlers.js
 import { rest } from 'msw'
+import mountain from './mountain.mock'
 
 export const handlers = [
+  ...mountain,
   rest.post('/login', (_, res, ctx) => {
     // Persist user's authentication in the session
     sessionStorage.setItem('is-authenticated', 'true')
