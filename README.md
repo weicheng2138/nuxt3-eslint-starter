@@ -8,7 +8,7 @@ Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 -   [x] 🍍 [State & Store Management (Pinia)](https://pinia.vuejs.org/)
 -   [x] 📦 [Vue Composition Collection (Vueuse)](https://vueuse.org/)
 -   [x] 🥸 [Mocking Service Worker (MSW)](https://mswjs.io/)
--   [x] 📱 Mobile Detect Plugin
+-   [x] 📱 Mobile Detect module [@nuxtjs/device](https://www.npmjs.com/package/@nuxtjs/device/v/3.0.0?activeTab=readme)
 -   [x] ✨ Eslint & lint-staged
 -   [x] 🐕 Husky & cz
 -   [x] 🔗 [Axios v1](https://axios-http.com/) setup complete in NuxtApp
@@ -69,7 +69,7 @@ yarn add -D @nuxtjs/eslint-config-typescript eslint
 }
 ```
 
-Optional: We use eslint to format the code officially. There are settings that you may want to disable.
+Optional: We use eslint to format the code officially. There are some settings that you may want to disable.
 1. On macOS - Code > Preferences > Settings
 2. Search `Prettier:Require Config` uncheck it in your workspace
 ```json
@@ -167,6 +167,7 @@ yarn add -D msw
 ```
 
 ```ts
+// msw.client.ts
 import { worker } from '@/mocks/browser'
 
 export default defineNuxtPlugin(() => {
@@ -179,26 +180,18 @@ export default defineNuxtPlugin(() => {
 ```
 
 ### [Axios](https://axios-http.com/) Setup
-
+You have to set interceptors for each purpose of api in apis directory. Then all these file will get imported into `plugins/apis.ts`.
 ```bash
 yarn add -D axios
 ```
-
-`api` folder structure is below
-
+ 
+Use it as a plugin. You can use it like below.
+```ts
+const { $api } = useNuxtApp()
+const handleClick = async () => {
+  const data = await $api.mountain.getMountains()
+}
 ```
-.
-└── api
-    ├── index.ts
-    ├── user.ts
-    ├── search.ts
-    └── layout.modify.ts
-```
-
--   `index.ts` is the root file to access all apis
--   Only `mocks/handlers.ts` can directly access individual api file to get the urls
--   Please call `layout.modify.ts` by using `useAsync`. `layout.modify.ts` is the modification of current site layout from backend.
--   And put api into useNuxtApp to be the context from plugins
 
 ### [Device](https://www.npmjs.com/package/@nuxtjs/device/v/3.0.0?activeTab=readme) Setup
 
@@ -272,7 +265,7 @@ definePageMeta({
 
 ### [VueUse](https://vueuse.org/) Setup
 
-Its composables are also auto-import to your project✨✨✨
+Its composables are also auto-import to your project ✨✨✨
 
 ```bash
 yarn add -D @vueuse/nuxt @vueuse/core

@@ -4,8 +4,18 @@ import type { Config } from 'tailwindcss'
 export default <Partial<Config>>{
   theme: {
     extend: {
-      colors: {
-        primary: '#000000'
+      // colors: {
+      //   primary: defaultTheme.colors.green
+      // },
+      transitionProperty: {
+        flow: 'background-position'
+      },
+      backgroundSize: {
+        flow: '400% auto'
+      },
+      backgroundImage: {
+        'nuxt-gradient':
+          'linear-gradient(30deg,#475569,#475569 25%,#0007dc 50%,#5400dc 75%,#dc00bf)'
       }
     }
   }
