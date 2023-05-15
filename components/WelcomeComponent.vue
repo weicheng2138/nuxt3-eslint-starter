@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex min-h-screen flex-col items-center justify-center bg-slate-800 px-4 pt-8  sm:pt-0 text-white"
+    class="flex min-h-screen flex-col items-center justify-center bg-slate-800 px-4 pt-8 sm:pt-0 text-white"
   >
     <header class="mb-4">
       <a href="https://v3.nuxtjs.org/">
@@ -42,21 +42,21 @@
       class="relative w-full max-w-xl rounded p-4 before:absolute before:inset-[14px] before:block before:rounded-lg before:bg-slate-600 before:bg-flow before:bg-left-bottom before:transition-flow before:duration-300 before:hover:bg-nuxt-gradient before:hover:bg-right"
     >
       <div class="relative rounded-md bg-slate-800 p-4">
-        <h1 class="text-2xl">
-          Get Started
-        </h1>
+        <h1 class="text-2xl">Get Started</h1>
+        <p>Eslint, Tailwindcss, Pinia and Axios are ready to launch 🚀</p>
         <p>
-          Eslint, Tailwindcss, Pinia and Axios are ready to launch 🚀
-        </p>
-        <p>
-          Remove this <code
+          Remove this
+          <code
             class="rounded bg-gray-100 p-1 font-mono font-bold dark:bg-white/10"
-          >WelcomeComponent</code> tag from <code>pages/index.vue</code>.
+            >WelcomeComponent</code
+          >
+          tag from <code>pages/index.vue</code>. You can test some apis from
+          <code>pages/test.vue</code>
         </p>
       </div>
     </section>
     <a
-      href="https://github.com/nuxt/framework"
+      href="https://github.com/nuxt/nuxt"
       target="_blank"
       rel="noopener"
       class="relative max-w-xl rounded p-4 before:absolute before:inset-[14px] before:block before:rounded-lg before:bg-slate-600 before:bg-flow before:bg-left-bottom before:transition-flow before:duration-300 before:hover:bg-nuxt-gradient before:hover:bg-right"
